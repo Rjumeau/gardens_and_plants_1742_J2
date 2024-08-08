@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-4">
+      <h1 class="my-3">What chore did you do for the plant ?</h1>
+
+      <%= simple_form_for [@plant, @completion] do |f| %>
+        <%= f.association :chore %>
+        <%#= f.input :chore, collection: Chore.all %>
+        <%= f.submit 'GO', class: 'btn btn-primary d-block mx-auto' %>
+      <% end %>
+    </div>
+  </div>
+</div>

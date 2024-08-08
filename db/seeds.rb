@@ -7,12 +7,41 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Garden.destroy_all
+Plant.destroy_all
+Chore.destroy_all
 
-attributes = [
+names = %w(Water Mist Clean Feed Repot Rotate)
+
+names.each do |name|
+  Chore.create(name: name)
+end
+
+garden_attributes = [
   { name: "My Little Garden", banner_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_1.jpg" },
   { name: "My Other Garden", banner_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/garden_2.jpg" }
 ]
 
-attributes.each do |attribute|
+garden_attributes.each do |attribute|
   Garden.create(attribute)
+end
+
+plant_attributes = [
+   { name: "Monstera",
+     image_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/monstera.jpg",
+     garden: Garden.first
+   },
+   {
+     name: "Philo",
+     image_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/philo.jpg",
+     garden: Garden.first
+   },
+   {
+    name: "Dieff",
+    image_url: "https://raw.githubusercontent.com/lewagon/fullstack-images/master/rails/parks-and-plants/plants/dieffenbachia.jpg",
+    garden: Garden.last
+   }
+]
+
+plant_attributes.each do |plant_attribute|
+  Plant.create(plant_attribute)
 end
